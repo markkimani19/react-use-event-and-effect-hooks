@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Todolist from './components/Todolist';
 
 let data = [
@@ -42,6 +42,13 @@ function App() {
 
   // use useEffect hook to send request to jsonplaceholder api todos and update the state
   // write your code here
+  useEffect(() => {
+    fetch("https://jsonplaceholder.typicode.com/todos")
+    .then(res => res.json())
+    .then(data => setTodos(data))
+    .catch(e => console.log(e))
+  }
+  , [])
 
 
   return (
