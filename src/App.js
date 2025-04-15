@@ -1,23 +1,53 @@
 import logo from './logo.svg';
 import './App.css';
+import { useState } from 'react';
+import Todolist from './components/Todolist';
 
+let data = [
+  {
+    
+    id: 1,
+    title: "delectus aut autem",
+    completed: false
+  },
+  {
+    
+    id: 2,
+    title: "quis ut nam facilis et officia qui",
+    completed: false
+  },
+  {
+    
+    id: 3,
+    title: "fugiat veniam minus",
+    completed: false
+  },
+  {
+    
+    id: 4,
+    title: "et porro tempora",
+    completed: true
+  },
+  {
+   
+    id: 5,
+    title: "laboriosam mollitia et enim quasi adipisci quia provident illum",
+    completed: false
+  }
+]
 function App() {
+
+  const [todos, setTodos] = useState([])
+  // console.log(data)
+
+  // use useEffect hook to send request to jsonplaceholder api todos and update the state
+  // write your code here
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Todo List</h1>
+      <Todolist todos = {todos} title = "this is react"/>
     </div>
   );
 }
